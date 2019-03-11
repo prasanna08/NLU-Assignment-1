@@ -55,7 +55,7 @@ def eval_simlex(Wu):
 
     word_to_vec_scores = []
     for p in pair_ids:
-        word_to_vec_scores.append([np.dot(Wu[p[0]], Wu[p[1]]), p[2]])
+        word_to_vec_scores.append([np.abs(np.dot(Wu[p[0]], Wu[p[1]])), p[2]])
 
     word_to_vec_scores = np.array(word_to_vec_scores).astype(np.float32)
     x = word_to_vec_scores[:,0]
